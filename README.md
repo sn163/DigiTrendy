@@ -1,2 +1,2 @@
-# digital-trendy
+# Digitrendy
 Tech News App
