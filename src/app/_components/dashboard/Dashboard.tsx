@@ -23,15 +23,9 @@ const mapArticlesQueryToArticles = (articles: ArticlesQuery[]) => {
 
 export default function Dashboard() {
   const [articlesList, setArticlesList] = useState<Articles[]>();
-  // const [nextPageUrl, setNextPageUrl] = useState();
-  // const [prevPageUrl, setPrevPageUrl] = useState();
-  // const [allArticlesList, setAllArticlesList] = useState<Articles[]>();
-  // const [value, setValue] = useState("");
-  //const [loading, setLoading] = useState(true);
 
   const id = uuid();
   useEffect(() => {
-    //setLoading(true);
     fetch(
       `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`,
     )
