@@ -1,27 +1,45 @@
 {
   "name": "digitrendy",
   "version": "0.1.0",
+  "homepage": "https://digitrendy.sonnyn.dev",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "concurrently \"next dev --turbo\" \"tailwindcss --input ./src/app/globals.css --output ./src/app/output.css --watch\"",
+    "build": "tailwindcss ./src/app/globals.css --output ./src/app/output.css && next build",
     "start": "next start",
-    "lint": "next lint"
+    "watch": "postcss .src/app/index.css -o ./src/css/output.css --watch",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write src"
   },
   "dependencies": {
+    "@apollo/client": "^3.9.8",
+    "@typescript-eslint/typescript-estree": "^7.3.1",
+    "apollo-client": "^2.6.10",
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
+    "graphql": "^15.8.0",
+    "graphql-tag": "^2.12.6",
+    "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.4"
+    "typesync": "^0.12.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/eslint": "^8.56.6",
+    "@types/eslint-config-prettier": "^6.11.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.1.4"
+    "eslint-config-next": "14.1.4",
+    "eslint-config-prettier": "^9.1.0",
+    "postcss": "^8",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.12",
+    "react-uuid": "^2.0.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   }
 }
